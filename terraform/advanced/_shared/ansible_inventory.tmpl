@@ -1,0 +1,4 @@
+%{ if is_windows_image == true }[windows]%{ else }[linux]%{ endif }
+%{ for index, hostname in hostnames ~}
+${hostname} ansible_host=${ansible_hosts[index]}
+%{ endfor ~}

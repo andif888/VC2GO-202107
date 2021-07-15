@@ -1,0 +1,2 @@
+[windows]
+srv1 ansible_host=20.23.121.78     # Change manually (azure public ip address)

@@ -1,0 +1,21 @@
+---
+- hosts: windows
+  tasks:
+    # - name: Install Windows Feature Remote Administration
+    #   win_feature:
+    #     name: 'RSAT-AD-PowerShell'
+    #     state: present
+
+    - name: Create Desktop Shortcut Local Policy (gpedit.msc)
+      win_shortcut:
+        src: '%windir%\system32\gpedit.msc'
+        dest: '%PUBLIC%\Desktop\gpedit.lnk'
+      tags: desktopshortcut
+
+    - name: Create Desktop Shortcut Printers
+      win_shortcut:
+        src: '%windir%\explorer.exe'
+        dest: '%PUBLIC%\Desktop\Printers.lnk'
+        arguments: shell:::{A8A91A66-3A7D-4424-8D24-04E180695C7A}
+        icon: '%windir%\system32\devicecenter.dll,0'
+      tags: desktopshortcut

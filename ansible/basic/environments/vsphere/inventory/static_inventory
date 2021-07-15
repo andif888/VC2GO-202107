@@ -1,0 +1,2 @@
+[windows]
+srv1 ansible_host=192.168.222.104     # Change manually

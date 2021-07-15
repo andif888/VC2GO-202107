@@ -1,0 +1,10 @@
+---
+ansible_shell_type: powershell
+ansible_become_method: runas
+
+# Example for WinRM Connection
+# ansible_user: "vagrant"
+# ansible_password: "vagrant"
+# ansible_port: 5986
+# ansible_connection: winrm
+# ansible_winrm_server_cert_validation: ignore

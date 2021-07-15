@@ -1,0 +1,11 @@
+---
+- hosts: windows
+  tasks:
+    - name: test powershell
+      win_shell: |
+                get-host
+      register: result_get_host
+      
+    - name: display result_get_host
+      debug:
+        var: result_get_host

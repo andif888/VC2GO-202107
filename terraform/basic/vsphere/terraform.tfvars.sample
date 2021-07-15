@@ -1,0 +1,3 @@
+vsphere_server            = "vcenter.lab.controlup.eu"
+vsphere_user              = "administrator@vsphere.local"
+vsphere_password          = "YourSecretPassword"

@@ -1,0 +1,6 @@
+---
+ansible_user: "a-bot"
+ansible_port: 22
+ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+ansible_ssh_retries: 3
+ansible_become_user: "{{ ansible_user }}"
