@@ -68,6 +68,11 @@ resource "vsphere_virtual_machine" "vm" {
         auto_logon            = true
         auto_logon_count      = 1
         admin_password        = "vagrant"
+        # !ATTENTION: 
+        # the run_once_command works on server OSes but not in Windows 10 and 11.
+        # Windows 10 and 11 do not like the escaped quotes in resulting sysprep.xml. Resulting as &quot; in sysprep.xml.
+        # Windows 10 and 11 usually gives you a complete misleading error message during boot: 
+        # "Windows could not save the unattend file to disk". 
         run_once_command_list = ["cmd.exe /C powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/andif888/run_once_cmd/master/1.ps1'))\""]
       }
       network_interface {
